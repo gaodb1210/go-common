@@ -19,24 +19,29 @@ func newRunner() *Runner {
     return &Runner{}
 }
 
+// Cancel cancel running command
 func (r *Runner) Cancel() {
     if r.command != nil {
         _ = r.command.Process.Kill()
     }
 }
 
+// SetUser set user
 func (r *Runner) SetUser(name string) {
     r.user = name
 }
 
+// SetPassword set password
 func (r *Runner) SetPassword(password string) {
     r.password = password
 }
 
+// SetHomeDir set home dir
 func (r *Runner) SetHomeDir(homeDir string) {
     r.homeDir = homeDir
 }
 
+// SyncRunSimple sync run command, ignore output
 func (r *Runner)  SyncRunSimple(commandName string, commandArguments []string, timeOut int) error {
     
     // 1. init command
@@ -70,6 +75,7 @@ func (r *Runner)  SyncRunSimple(commandName string, commandArguments []string, t
     return err
 }
 
+// SyncRun sync run command, write stdout to stdoutWriter, write stderr to stderrWriter
 func (r *Runner) SyncRun(
     workingDir string,
     commandName string,
