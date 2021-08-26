@@ -12,7 +12,6 @@ type Runner struct {
     user            string
     password        string
     homeDir         string
-    canceledChan    chan bool
 }
 
 func newRunner() *Runner {
