@@ -11,6 +11,8 @@ import (
 
 const defaultTimestampFormat = "2006-01-02 15:04:05"
 
+// the formatter for logrus
+
 // Formatter - implements logrus.Formatter
 type Formatter struct {
     // FieldsOrder - default: fields sorted alphabetically
